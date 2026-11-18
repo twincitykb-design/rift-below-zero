@@ -1,5 +1,5 @@
 
-const SUPABASE_URL = 'https://kizjnsbm rknvmvajzaz.supabase.co'.replace(' ', '');
+const SUPABASE_URL = 'https://kizjnsbmrknvmvajzaz.supabase.co'.replace(' ', '');
 const SUPABASE_KEY = 'sb_publishable_qVlRGfStVG1ZVxiybW8wXQ_4sUu_Y6t';
 
 let supabaseClient;
