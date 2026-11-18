@@ -2,21 +2,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:title" content="Rift Below Zero | The Summoner's Seal">
 <meta property="og:description" content="Break the seal. Answer the call to Summoner's Rift.">
+
 <title>Rift Below Zero</title>
 <link rel="icon" href="data:,">
 
 <style>
+
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    background: radial-gradient(ellipse at 50% 35%, #183e59, #050c17 75%);
+    background: radial-gradient(
+        ellipse at 50% 35%,
+        #183e59,
+        #050c17 75%
+    );
     color: #e5edf6;
     font-family: Georgia, serif;
     min-height: 100vh;
@@ -89,7 +96,11 @@ button:focus-visible {
 .base {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #29465c, #0a182a);
+    background: linear-gradient(
+        135deg,
+        #29465c,
+        #0a182a
+    );
     border: 1px solid #c9ac72;
 }
 
@@ -103,7 +114,10 @@ button:focus-visible {
 .flap {
     position: absolute;
     inset: 0;
-    background: linear-gradient(#34566c, #152a40);
+    background: linear-gradient(
+        #34566c,
+        #152a40
+    );
     clip-path: polygon(0 0, 100% 0, 50% 66%);
     transform-origin: top;
     transition: transform 1s;
@@ -121,7 +135,11 @@ button:focus-visible {
     height: 76px;
     padding: 0;
     font-size: 38px;
-    background: radial-gradient(#76dfff, #22538a 60%, #13263f);
+    background: radial-gradient(
+        #76dfff,
+        #22538a 60%,
+        #13263f
+    );
     box-shadow: 0 0 24px #69dfff;
     transition: opacity .4s;
 }
@@ -136,7 +154,11 @@ button:focus-visible {
 }
 
 .letter {
-    background: linear-gradient(140deg, #e9dfbf, #c7ba92);
+    background: linear-gradient(
+        140deg,
+        #e9dfbf,
+        #c7ba92
+    );
     border: double 6px #9c8050;
     color: #172e40;
     padding: 35px 20px;
@@ -191,6 +213,11 @@ button:focus-visible {
     margin-top: 10px;
 }
 
+#role {
+    width: 220px;
+    text-align: center;
+}
+
 #status, #loading {
     overflow-wrap: anywhere;
 }
@@ -210,6 +237,7 @@ button:focus-visible {
         opacity: 0;
         transform: translateY(35px);
     }
+
     to {
         opacity: 1;
         transform: none;
@@ -217,6 +245,7 @@ button:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     *, *::before, *::after {
         animation: none !important;
         transition: none !important;
@@ -225,7 +254,9 @@ button:focus-visible {
     .snow {
         display: none;
     }
+
 }
+
 </style>
 </head>
 
@@ -245,6 +276,8 @@ button:focus-visible {
         The Council of Runeterra
     </div>
 
+    <!-- CLOSED ENVELOPE -->
+
     <section id="closed" hidden>
 
         <h1>A summons has arrived.</h1>
@@ -262,23 +295,29 @@ button:focus-visible {
                  viewBox="0 0 440 267"
                  preserveAspectRatio="none">
 
-                <path d="M0 267 L220 112 L440 267
-                         M0 0 L220 176 L440 0"
-                      fill="none"
-                      stroke="#b99b63"/>
+                <path
+                    d="M0 267 L220 112 L440 267
+                       M0 0 L220 176 L440 0"
+                    fill="none"
+                    stroke="#b99b63"
+                />
 
-                <path d="M12 12 H428 V255 H12Z"
-                      fill="none"
-                      stroke="#b99b63"
-                      opacity=".35"/>
+                <path
+                    d="M12 12 H428 V255 H12Z"
+                    fill="none"
+                    stroke="#b99b63"
+                    opacity=".35"
+                />
 
             </svg>
 
             <div class="flap"></div>
 
-            <button class="seal"
-                    id="seal"
-                    aria-label="Break the Hextech seal">
+            <button
+                class="seal"
+                id="seal"
+                aria-label="Break the Hextech seal"
+            >
                 ◇
             </button>
 
@@ -292,11 +331,17 @@ button:focus-visible {
 
     </section>
 
+    <!-- OPEN INVITATION -->
+
     <section id="letter" class="letter" hidden>
 
-        <small>By decree of the Troll King</small>
+        <small>
+            By decree of the Troll King
+        </small>
 
-        <h1 id="eventTitle">Rift Below Zero</h1>
+        <h1 id="eventTitle">
+            Rift Below Zero
+        </h1>
 
         <p>
             Dear <strong id="guest">Summoner</strong>,
@@ -312,20 +357,29 @@ button:focus-visible {
 
         <div class="count" id="count"></div>
 
-        <small>No LP. No rank. Only glory.</small>
+        <small>
+            No LP. No rank. Only glory.
+        </small>
 
         <hr>
 
+        <!-- RSVP FORM -->
+
         <form id="rsvp">
 
-            <label for="riot">Summoner / Riot ID</label>
+            <label for="riot">
+                Summoner / Riot ID
+            </label>
 
             <br>
 
-            <input id="riot"
-                   required
-                   maxlength="80"
-                   placeholder="Name#TAG">
+            <input
+                id="riot"
+                required
+                maxlength="80"
+                placeholder="Name#TAG"
+                autocomplete="off"
+            >
 
             <p>
                 <label for="role">
@@ -334,12 +388,15 @@ button:focus-visible {
             </p>
 
             <select id="role">
-                <option>Fill</option>
-                <option>Top</option>
-                <option>Jungle</option>
-                <option>Mid</option>
-                <option>ADC</option>
-                <option>Support</option>
+
+                <option value="Fill">Fill</option>
+                <option value="Top">Top</option>
+                <option value="Jungle">Jungle</option>
+                <option value="Mid">Mid</option>
+                <option value="ADC">ADC</option>
+                <option value="Support">Support</option>
+                <option value="Caster">Caster</option>
+
             </select>
 
             <div class="actions">
@@ -382,12 +439,18 @@ button:focus-visible {
 
 // =====================================
 // SUPABASE CONFIGURATION
+// REPLACE THESE TWO VALUES
 // =====================================
 
-const SUPABASE_URL = 'https://kizjnmsbmrknvmvajzaz.supabase.co';
+const SUPABASE_URL =
+    'YOUR_CORRECT_SUPABASE_PROJECT_URL';
 
 const SUPABASE_KEY =
-    'sb_publishable_qVlRGfStVG1ZVxiybW8wXQ_4sUu_Y6t';
+    'YOUR_SUPABASE_PUBLISHABLE_KEY';
+
+// =====================================
+// INITIAL VARIABLES
+// =====================================
 
 const $ = id => document.getElementById(id);
 
@@ -395,11 +458,11 @@ const params = new URLSearchParams(
     window.location.search
 );
 
-const eventId = params.get('event') || 'rift-001';
+const eventId =
+    params.get('event') || 'rift-001';
 
-const guestName = (
-    params.get('guest') || ''
-).slice(0, 80);
+const guestName =
+    (params.get('guest') || '').slice(0, 80);
 
 let db;
 let currentEvent;
@@ -423,6 +486,17 @@ async function initialize() {
 
         }
 
+        if (
+            SUPABASE_URL.includes('YOUR_') ||
+            SUPABASE_KEY.includes('YOUR_')
+        ) {
+
+            throw new Error(
+                'Host has not configured Supabase yet.'
+            );
+
+        }
+
         db = window.supabase.createClient(
             SUPABASE_URL,
             SUPABASE_KEY
@@ -430,18 +504,42 @@ async function initialize() {
 
         console.info('Supabase client initialized');
 
-        const { data, error } = await db
-            .from('events')
-            .select('*')
-            .eq('id', eventId)
-            .single();
+        const controller = new AbortController();
+
+        const timeout = setTimeout(
+            () => controller.abort(),
+            15000
+        );
+
+        let result;
+
+        try {
+
+            result = await db
+                .from('events')
+                .select('*')
+                .eq('id', eventId)
+                .abortSignal(controller.signal)
+                .maybeSingle();
+
+        } finally {
+
+            clearTimeout(timeout);
+
+        }
+
+        const { data, error } = result;
 
         if (error) {
             throw error;
         }
 
         if (!data) {
-            throw new Error('Event not found.');
+
+            throw new Error(
+                'Event not found. Please use a valid invitation link.'
+            );
+
         }
 
         currentEvent = data;
@@ -451,7 +549,11 @@ async function initialize() {
         );
 
         if (Number.isNaN(eventDate.getTime())) {
-            throw new Error('Invalid event date.');
+
+            throw new Error(
+                'Invalid event date.'
+            );
+
         }
 
         $('eventTitle').textContent =
@@ -470,9 +572,11 @@ async function initialize() {
 
         $('eventDisplay').textContent =
             eventDate.toLocaleString('en-US', {
+
                 timeZone: 'America/New_York',
                 dateStyle: 'full',
                 timeStyle: 'short'
+
             }) + ' ET';
 
         $('local').textContent =
@@ -483,11 +587,15 @@ async function initialize() {
             currentEvent.title +
             " | The Summoner's Seal";
 
+        // EVENT THEMES
+
         const colors = {
+
             shadow: '#16493d',
             demacia: '#776747',
             freljord: '#36729b',
             hybrid: '#183e59'
+
         };
 
         const color =
@@ -495,16 +603,24 @@ async function initialize() {
             colors.hybrid;
 
         document.body.style.background =
-            `radial-gradient(ellipse at 50% 35%,
-            ${color}, #050c17 75%)`;
+            `radial-gradient(
+                ellipse at 50% 35%,
+                ${color},
+                #050c17 75%
+            )`;
+
+        // EVENT COUNTDOWN
 
         function tick() {
 
             const seconds = Math.max(
+
                 0,
+
                 Math.floor(
                     (eventDate - Date.now()) / 1000
                 )
+
             );
 
             const days =
@@ -516,10 +632,13 @@ async function initialize() {
             const minutes =
                 Math.floor(seconds / 60) % 60;
 
-            const remaining = seconds % 60;
+            const remaining =
+                seconds % 60;
 
             $('count').textContent = seconds
+
                 ? `${days}d : ${hours}h : ${minutes}m : ${remaining}s`
+
                 : 'The scheduled start time has arrived';
 
         }
@@ -528,16 +647,26 @@ async function initialize() {
 
         tick();
 
-        countdownTimer = setInterval(tick, 1000);
+        countdownTimer = setInterval(
+            tick,
+            1000
+        );
 
         $('loading').hidden = true;
+
         $('closed').hidden = false;
 
-        console.info('Event loaded:', eventId);
+        console.info(
+            'Event loaded:',
+            eventId
+        );
 
     } catch (error) {
 
-        console.error('Invitation error:', error);
+        console.error(
+            'Invitation error:',
+            error
+        );
 
         $('loading').textContent =
             'Invitation unavailable: ' +
@@ -553,18 +682,25 @@ async function initialize() {
 
 for (let i = 0; i < 48; i++) {
 
-    const snow = document.createElement('span');
+    const snow =
+        document.createElement('span');
 
     snow.className = 'snow';
 
     snow.textContent = '•';
 
     snow.style.cssText = `
+
         left: ${Math.random() * 100}%;
+
         font-size: ${5 + Math.random() * 9}px;
+
         opacity: ${.2 + Math.random() * .7};
+
         animation-duration: ${8 + Math.random() * 15}s;
+
         animation-delay: ${-Math.random() * 20}s;
+
     `;
 
     document.body.appendChild(snow);
@@ -572,7 +708,7 @@ for (let i = 0; i < 48; i++) {
 }
 
 // =====================================
-// ENVELOPE ANIMATION
+// OPEN ENVELOPE
 // =====================================
 
 $('seal').onclick = () => {
@@ -584,19 +720,27 @@ $('seal').onclick = () => {
     openingTimer = setTimeout(() => {
 
         $('closed').hidden = true;
+
         $('letter').hidden = false;
+
         $('replay').hidden = false;
 
     }, 950);
 
 };
 
+// =====================================
+// RESEAL INVITATION
+// =====================================
+
 $('replay').onclick = () => {
 
     clearTimeout(openingTimer);
 
     $('letter').hidden = true;
+
     $('closed').hidden = false;
+
     $('replay').hidden = true;
 
     $('env').classList.remove('opened');
@@ -627,7 +771,7 @@ $('rsvp').onsubmit = async function(e) {
     if (!db || !currentEvent) {
 
         $('status').textContent =
-            'Event connection unavailable. Refresh and try again.';
+            'Event connection unavailable.';
 
         return;
 
@@ -636,7 +780,8 @@ $('rsvp').onsubmit = async function(e) {
     const decision =
         e.submitter?.value || 'Accept';
 
-    const role = decision === 'Accept'
+    const role =
+        decision === 'Accept'
         ? $('role').value
         : 'N/A';
 
@@ -644,8 +789,12 @@ $('rsvp').onsubmit = async function(e) {
         this.querySelectorAll('button');
 
     buttons.forEach(button => {
+
         button.disabled = true;
+
     });
+
+    $('status').style.color = '#17334a';
 
     $('status').textContent =
         'Sending your response…';
@@ -653,7 +802,9 @@ $('rsvp').onsubmit = async function(e) {
     try {
 
         const { error } = await db
+
             .from('rsvps')
+
             .insert({
 
                 event_id: currentEvent.id,
@@ -664,19 +815,50 @@ $('rsvp').onsubmit = async function(e) {
             });
 
         if (error) {
+
             throw error;
+
         }
 
-        $('status').textContent =
-            decision === 'Accept'
-                ? 'Your summons has been accepted. See you on the Rift, ' + name + '!'
-                : 'Your response has been received. Thank you, ' + name + '.';
+        $('status').style.color = '#245c37';
 
-        console.info('RSVP saved successfully');
+        if (decision === 'Accept') {
+
+            if (role === 'Caster') {
+
+                $('status').textContent =
+                    'Your summons has been accepted, ' +
+                    name +
+                    '! Prepare to cast the battle on the Rift.';
+
+            } else {
+
+                $('status').textContent =
+                    'Your summons has been accepted. See you on the Rift, ' +
+                    name + '!';
+
+            }
+
+        } else {
+
+            $('status').textContent =
+                'Your response has been received. Thank you, ' +
+                name + '.';
+
+        }
+
+        console.info(
+            'RSVP saved successfully'
+        );
 
     } catch (error) {
 
-        console.error('RSVP submission failed:', error);
+        console.error(
+            'RSVP submission failed:',
+            error
+        );
+
+        $('status').style.color = '#8b2020';
 
         $('status').textContent =
             'Response not sent: ' +
@@ -685,7 +867,9 @@ $('rsvp').onsubmit = async function(e) {
     } finally {
 
         buttons.forEach(button => {
+
             button.disabled = false;
+
         });
 
     }
@@ -705,12 +889,14 @@ function phrase() {
     const now = audio.currentTime;
 
     const frequencies = [
+
         130.81,
         155.56,
         196,
         293.66,
         261.63,
         196
+
     ];
 
     frequencies.forEach((frequency, i) => {
@@ -718,7 +904,8 @@ function phrase() {
         const oscillator =
             audio.createOscillator();
 
-        const gain = audio.createGain();
+        const gain =
+            audio.createGain();
 
         oscillator.type =
             i < 3 ? 'sine' : 'triangle';
@@ -729,16 +916,25 @@ function phrase() {
         const time =
             now + (i < 3 ? 0 : (i - 3) * 1.7);
 
-        gain.gain.setValueAtTime(0, time);
+        gain.gain.setValueAtTime(
+            0,
+            time
+        );
 
         gain.gain.linearRampToValueAtTime(
+
             i < 3 ? .035 : .018,
+
             time + 1
+
         );
 
         gain.gain.exponentialRampToValueAtTime(
+
             .0001,
+
             time + 5.7
+
         );
 
         oscillator.connect(gain);
@@ -769,7 +965,8 @@ $('music').onclick = async function() {
                 '♫ Music off';
 
             $('music').setAttribute(
-                'aria-pressed', 'false'
+                'aria-pressed',
+                'false'
             );
 
         } else {
@@ -794,20 +991,27 @@ $('music').onclick = async function() {
 
             phrase();
 
-            loop = setInterval(phrase, 6500);
+            loop = setInterval(
+                phrase,
+                6500
+            );
 
             $('music').textContent =
                 '♫ Music on';
 
             $('music').setAttribute(
-                'aria-pressed', 'true'
+                'aria-pressed',
+                'true'
             );
 
         }
 
     } catch (error) {
 
-        console.error('Audio error:', error);
+        console.error(
+            'Audio error:',
+            error
+        );
 
         $('music').textContent =
             'Audio unavailable';
